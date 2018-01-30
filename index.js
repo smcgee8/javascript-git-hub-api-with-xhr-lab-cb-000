@@ -1,3 +1,7 @@
+function showRepositories(event, data) {
+  console.log(this.responseText);
+}
+
 function getRepositories() {
   event.preventDefault();
   var username = document.getElementById("username").value;
