@@ -3,7 +3,8 @@ function getCommits(element) {
   const user = element.dataset.user;
   const req = new XMLHttpRequest();
   req.addEventListener("load", showCommits);
-  req.open("GET", 'https://api.github.com/repos/')
+  req.open("GET", 'https://api.github.com/repos/' + user + '/' + repo + '/commits');
+  req.send();
 }
 
 function showRepositories(event, data) {
