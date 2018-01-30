@@ -1,6 +1,13 @@
+function getCommits(element) {
+  const name = element.dataset.repo;
+  const req = new XMLHttpRequest();
+  req.addEventListener("load", showCommits);
+  req.open("GET", 'https://api.github.com/repos/')
+}
+
 function showRepositories(event, data) {
   var repos = JSON.parse(this.responseText)
-  const repoList = `<ul>${repos.map(r => '<li>' + r.name + ' - <a href="' + r.html_url + '">Go to Github</a> <a href="#" data-repo="' + r.name + '" onclick="getCommits(this)">Show Commits</a></li>').join('')}</ul>`
+  const repoList = `<ul>${repos.map(r => '<li>' + r.name + ' - <a href="' + r.html_url + '">Go to Github</a> <a href="#" data-repo="' + r.name + '" data-user="' + r.owner.login + '" onclick="getCommits(this)">Show Commits</a></li>').join('')}</ul>`
   document.getElementById("repositories").innerHTML = repoList
 }
 
