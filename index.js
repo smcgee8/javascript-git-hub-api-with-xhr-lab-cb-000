@@ -1,6 +1,6 @@
 function showRepositories(event, data) {
   var repos = JSON.parse(this.responseText)
-  const repoList = `<ul>${repos.map(r => '<li>' + r.name + ' - <a href="' + r.html_url + '">Go to Github</a></li>').join('')}</ul>`
+  const repoList = `<ul>${repos.map(r => '<li>' + r.name + ' - <a href="' + r.html_url + '">Go to Github</a> <a href="#" data-repo="' + r.name + '" onclick="getCommits(this)">Show Commits</a></li>').join('')}</ul>`
   document.getElementById("repositories").innerHTML = repoList
 }
 
